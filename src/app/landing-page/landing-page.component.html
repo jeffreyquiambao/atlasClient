@@ -1,0 +1,51 @@
+<div fxLayout="row"  fxLayout.xs="column" [ngStyle]="{'margin-left': '10%', 'margin-right': '10%', 'margin-top': '60px', 'margin-bottom': '80px'}">
+ <div fxFlex="50%" [ngStyle]="{'background-color': '#f1f1f1','padding-left':'60px', 'padding-bottom':'30px'}" >
+   <h1 [ngStyle]="{'font-weight': 'normal'}">We help you do the heavy lifting 🏋</h1>
+   <p [ngStyle]="{'padding-bottom': '16px', 'padding-right': '80px'}">We generate a training regimen custom fit to your goals, experience and availability so that you can focus on what's important...training!</p>
+   <button mat-raised-button  [ngStyle]="{'margin-bottom': '16px', 'background-color': '#bc0000', 'color': 'white'}"  [routerLink]="['/athlete-information']">Get Started</button>
+ </div>
+  <div fxFlex="50%" [ngStyle]="{'background-color': '#bc0000'}" fxLayoutAlign="center center" >
+    <img src="/assets/laptop.png" [ngStyle]="{'max-width': '55%', 'display': 'block', 'margin-left': 'auto', 'margin-right': 'auto',  'margin-top': '24px',  'margin-bottom': '24px' }">
+  </div>
+</div>
+<div fxLayout="row" fxLayoutAlign="center center">
+  <h1 [ngStyle]="{'font-weight': 'normal'}">Why train with a program?</h1>
+</div>
+<div fxLayout="row"  fxLayout.xs="column" fxLayoutGap="48px" fxLayoutAlign="center center"[ngStyle]="{'margin-left': '12%', 'margin-right': '12%'}">
+<mat-card fxFlex="25%" [ngStyle]="{'padding-top': '42px', 'padding-bottom': '36px'}">
+  <img mat-card-image src="/assets/hourglass.svg" style="width:120px;height:120px" [ngStyle]="{'display': 'block', 'margin-left': 'auto', 'margin-right': 'auto' }">
+  <mat-card-title fxLayoutAlign="center center" [ngStyle]="{'margin-top': '24px', 'margin-bottom': '12px'}">Saves time</mat-card-title>
+  <mat-card-content>
+    <p>
+      Generate a tried and true training regimen so you don’t have to spend time planning your next workout
+    </p>
+  </mat-card-content>
+</mat-card>
+  <mat-card fxFlex="25%" [ngStyle]="{'padding-top': '42px', 'padding-bottom': '36px'}">
+    <img mat-card-image src="/assets/battery.svg" style="width:120px;height:120px" [ngStyle]="{'display': 'block', 'margin-left': 'auto', 'margin-right': 'auto' }">
+    <mat-card-title fxLayoutAlign="center center" [ngStyle]="{'margin-top': '24px', 'margin-bottom': '12px'}">Sustainable</mat-card-title>
+    <mat-card-content>
+      <p>
+        Structured and scheduled programming ensures you are not neglecting or over training muscles.
+      </p>
+    </mat-card-content>
+  </mat-card>
+  <mat-card fxFlex="25%" [ngStyle]="{'padding-top': '42px', 'padding-bottom': '36px'}">
+    <img mat-card-image src="/assets/muscle.svg" style="width:120px;height:120px" [ngStyle]="{'display': 'block', 'margin-left': 'auto', 'margin-right': 'auto' }">
+    <mat-card-title fxLayoutAlign="center center" [ngStyle]="{'margin-top': '24px', 'margin-bottom': '12px'}">It works</mat-card-title>
+    <mat-card-content>
+      <p>
+        When followed, programs act as a guideline for continued progress to your fitness goals.
+      </p>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center center"[ngStyle]="{'background-color': 'black', 'padding-left': '10%', 'padding-right': '10%', 'margin-top': '60px'}">
+    <h1 [ngStyle]="{'font-weight': 'normal', 'color': 'white', 'margin-right': '24px'}">Train with purpose</h1>
+    <div  >
+      <button mat-raised-button  [ngStyle]="{'background-color': '#bc0000', 'color':'white'}"  [routerLink]="['/athlete-information']">Get Started</button>
+    </div>
+  </div>
+
+

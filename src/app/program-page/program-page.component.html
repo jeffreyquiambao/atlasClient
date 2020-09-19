@@ -1,0 +1,48 @@
+<body>
+<div fxLayoutAlign="center center" fxLayout="row">
+  <h1 [ngStyle]="{'font-weight': 'normal'}">Your Custom Program</h1>
+</div>
+<div fxLayoutAlign="center start" fxLayout="row">
+  <form>
+    <mat-form-field appearance="outline">
+      <mat-label>Week</mat-label>
+      <mat-select [(ngModel)]="selectedWeek" name="week">
+        <mat-option *ngFor="let weeks of data; let i = index" [value]="i+1">{{i+1}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+    <button mat-icon-button (click)="openSnackBar()" [ngStyle]="{'margin-left': '12px', 'margin-top': '12px'}"><mat-icon [cdkCopyToClipboard]="address" >content_copy</mat-icon></button>
+</div>
+
+<div fxLayoutAlign="center" fxLayout="row wrap" fxLayout.xs="column" id="contentToConvert">
+<table mat-table *ngFor = "let trainingDay of data[selectedWeek-1]; let j = index" [dataSource]="trainingDay"  [ngStyle]="{'margin':'12px'}" class="mat-elevation-z8" >
+  <ng-container matColumnDef="parentDay">
+    <th mat-header-cell *matHeaderCellDef colspan="5" [ngStyle]="{'color':'black', 'font-size': '16px', 'text-align': 'center'}">Day {{j+1}}</th>
+  </ng-container>
+  <ng-container matColumnDef="Movement">
+    <th mat-header-cell *matHeaderCellDef>Movement</th>
+    <td mat-cell *matCellDef="let element">{{element.Movement}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="Sets">
+    <th mat-header-cell *matHeaderCellDef>Sets</th>
+    <td mat-cell *matCellDef="let element">{{element.Sets}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="Reps">
+    <th mat-header-cell *matHeaderCellDef>Reps</th>
+    <td mat-cell *matCellDef="let element">{{element.Reps}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="Weight">
+    <th mat-header-cell *matHeaderCellDef>Weight</th>
+    <td mat-cell *matCellDef="let element">{{getWorkingWeight(element.Movement, element.relativeLift, element.RM, element.weightIncrement, element.RPE)}}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="['parentDay']"></tr>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+</div>
+</body>
+
