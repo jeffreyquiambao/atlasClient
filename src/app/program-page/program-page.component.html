@@ -25,7 +25,7 @@
       </mat-select>
     </mat-form-field>
   </form>
-    <button mat-raised-button [ngStyle]="{'margin-left': '12px', 'margin-top': '12px', 'background-color': '#bc0000', 'color':'white'}" (click)="openSnackBar()" >Copy Program</button>
+    <button mat-raised-button [ngStyle]="{'margin-left': '12px', 'margin-top': '12px', 'background-color': '#bc0000', 'color':'white'}" [cdkCopyToClipboard]="address" (click)="openSnackBar()" >Copy Program</button>
 </div>
 
 <div fxLayoutAlign="center" fxLayout="row wrap" fxLayout.xs="column" id="contentToConvert">

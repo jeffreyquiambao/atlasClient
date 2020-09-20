@@ -433,7 +433,7 @@ export class ProgramPageComponent implements OnInit {
     this.deadliftMax = this.initiatlize1RM(this.athleteInfo.Deadlift.weight, this.athleteInfo.Deadlift.reps);
     this.benchMax = this.initiatlize1RM(this.athleteInfo.Bench.weight, this.athleteInfo.Bench.reps);
     this.squatMax = this.initiatlize1RM(this.athleteInfo.Squat.weight, this.athleteInfo.Squat.reps);
-    this.address = (this.platformLocation as any).location.origin + ('/reference-page' + '/' + this.athleteInfo.age + '/'  + this.athleteInfo.bodyweight + '/'  + this.athleteInfo.selectedStyle + '/'  + this.athleteInfo.selectedAvailability + '/'  + this.squatMax + '/' + this.benchMax + '/' + this.deadliftMax);
+    this.address = (this.platformLocation as any).location.origin + ('/atlasClient/reference-page' + '/' + this.athleteInfo.age + '/'  + this.athleteInfo.bodyweight + '/'  + this.athleteInfo.selectedStyle + '/'  + this.athleteInfo.selectedAvailability + '/'  + this.squatMax + '/' + this.benchMax + '/' + this.deadliftMax);
   }
 
   initiatlize1RM(weight: number, reps: number): number {
