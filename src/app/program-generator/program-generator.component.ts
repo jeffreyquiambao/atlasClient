@@ -17,6 +17,9 @@ export class ProgramGeneratorComponent implements OnInit {
   athleteInfo: AthleteInfo;
   trainingStyle;
   availability = [];
+  previouslySquatted: false;
+  previouslyBenched: false;
+  previouslyDeadlifted: false;
 
   trainingOptions: any = [
     {
@@ -32,6 +35,9 @@ export class ProgramGeneratorComponent implements OnInit {
 
   ngOnInit(): void {
     this.athleteForm = new FormGroup({
+      previouslySquatted: new FormControl(),
+      previouslyBenched: new FormControl(),
+      previouslyDeadlifted: new FormControl(),
       selectedStyle: new FormControl('', [Validators.required]),
       selectedAvailability: new FormControl('', [Validators.required]),
       bodyweight: new FormControl('', [Validators.required, Validators.min(1)]),
@@ -43,6 +49,13 @@ export class ProgramGeneratorComponent implements OnInit {
       benchWeight: new FormControl('', [Validators.required, Validators.min(1)]),
       benchReps: new FormControl('', [Validators.required, Validators.min(1)])
     });
+
+    this.athleteForm.controls.squatWeight.setValue(45);
+    this.athleteForm.controls.squatReps.setValue(1);
+    this.athleteForm.controls.benchWeight.setValue(45);
+    this.athleteForm.controls.benchReps.setValue(1);
+    this.athleteForm.controls.deadliftWeight.setValue(45);
+    this.athleteForm.controls.deadliftReps.setValue(1);
   }
 
   get bodyweight(): any {return this.athleteForm.get('bodyweight').value; }
@@ -51,6 +64,7 @@ export class ProgramGeneratorComponent implements OnInit {
 
   athleteInfoSubmit(): void {
     this.submitted = true;
+
     if (this.athleteForm.invalid) {
       console.log('invalid form');
       return;

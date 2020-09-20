@@ -1,8 +1,8 @@
 <body>
 <form *ngIf="!valid" [formGroup]="athleteForm" (ngSubmit)="athleteInfoSubmit()" >
-<div fxLayoutAlign="center center" fxLayout="column">
-  <mat-card   class="mat-elevation-z8"  [ngStyle]="{'margin-top': '48px', 'margin-bottom': '24px', 'margin-left': '24px', 'margin-right': '24px'}">
-  <h1 [ngStyle]="{'font-weight': 'normal'}">Athlete Information</h1>
+<div fxLayoutAlign="center center" fxLayout="column" [ngStyle]="{'margin-bottom': '24px'}">
+  <mat-card   class="mat-elevation-z8"  [ngStyle]="{'margin-top': '48px', 'margin-bottom': '24px', 'padding-left': '24px', 'padding-right': '24px'}">
+  <h1 [ngStyle]="{'font-weight': 'normal', 'text-align': 'center'}">Athlete Information</h1>
   <div fxLayout="row" fxLayout.xs="column">
   <mat-form-field [ngStyle]="{'margin-right': '48px'}">
     <mat-label>Training Style</mat-label>
@@ -14,7 +14,7 @@
     <mat-error *ngIf="submitted && f.selectedStyle.errors"><mat-error *ngIf="f.selectedStyle.errors.required">Training style is required</mat-error></mat-error>
   </mat-form-field>
   <mat-form-field>
-    <mat-label>Availability</mat-label>
+    <mat-label>Availability (days)</mat-label>
     <mat-select formControlName="selectedAvailability" name="trainingStyle" required>
       <mat-option *ngFor="let availability of availability" [value]="availability">
         {{availability}}
@@ -34,7 +34,16 @@
       <input matInput type="number" min="0" formControlName="age" maxlength="2" placeholder="Ex. 22">
     </mat-form-field>
   </div>
-    <div fxLayout="row" fxLayout.xs="column">
+<div fxLayout="column">
+  <h3 [ngStyle]="{'font-weight': 'normal'}">Which of the following do you have previous experience with?</h3>
+  <mat-checkbox formControlName="previouslyBenched" [(ngModel)]="previouslyBenched">Bench</mat-checkbox>
+  <mat-checkbox formControlName="previouslySquatted" [(ngModel)]="previouslySquatted">Squat</mat-checkbox>
+  <mat-checkbox formControlName="previouslyDeadlifted" [(ngModel)]="previouslyDeadlifted">Deadlift</mat-checkbox>
+</div>
+
+
+    <h3 *ngIf="previouslySquatted || previouslyBenched || previouslyDeadlifted" [ngStyle]="{'font-weight': 'normal'}">Enter the most weight you've lifted for each movement along with the completed reps</h3>
+    <div *ngIf="previouslyDeadlifted" fxLayout="row" fxLayout.xs="column">
     <mat-form-field [ngStyle]="{'margin-right': '48px'}">
       <mat-label>Deadlift Max (lbs)</mat-label>
       <input type="number" min="0" matInput formControlName="deadliftWeight" maxlength="3" placeholder="Ex. 225">
@@ -46,7 +55,7 @@
       <mat-error *ngIf="submitted && f.deadliftReps.errors"><mat-error *ngIf="f.deadliftReps.errors.min">Choose a valid rep number</mat-error><mat-error *ngIf="f.deadliftReps.errors.required">Deadlift reps is required</mat-error></mat-error>
     </mat-form-field>
   </div>
-    <div fxLayout="row" fxLayout.xs="column">
+    <div *ngIf="previouslyBenched" fxLayout="row" fxLayout.xs="column">
       <mat-form-field [ngStyle]="{'margin-right': '48px'}">
         <mat-label>Bench Max (lbs)</mat-label>
         <input type="number" min="0" matInput formControlName="benchWeight" maxlength="3" placeholder="Ex. 225">
@@ -58,7 +67,7 @@
         <mat-error *ngIf="submitted && f.benchReps.errors"><mat-error *ngIf="f.benchReps.errors.min">Choose a valid weight</mat-error><mat-error *ngIf="f.benchReps.errors.required">Bench reps is required</mat-error></mat-error>
       </mat-form-field>
     </div>
-    <div fxLayout="row" fxLayout.xs="column">
+    <div *ngIf="previouslySquatted" fxLayout="row" fxLayout.xs="column">
       <mat-form-field [ngStyle]="{'margin-right': '48px'}">
         <mat-label>Squat Max (lbs)</mat-label>
         <input type="number" min="0" matInput formControlName="squatWeight" maxlength="3" placeholder="Ex. 225">

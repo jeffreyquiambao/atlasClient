@@ -1,6 +1,20 @@
 <body>
-<div fxLayoutAlign="center center" fxLayout="row">
-  <h1 [ngStyle]="{'font-weight': 'normal'}">Your Custom Program</h1>
+<div fxLayoutAlign="center center" fxLayout="row" [ngStyle]="{'background-color': '#121212', 'height': '60%', 'color': 'white'}">
+  <h1 class="mat-display-2" [ngStyle]="{'font-weight': '700'}">Your Custom {{athleteInfo.selectedStyle}} Program</h1>
+</div>
+<div fxLayoutGap="36px" fxLayout.xs="column" fxLayoutAlign="center start" fxLayout="row" [ngStyle]="{'background-color': '#bc0000', 'color': 'white', 'padding':'36px', 'padding-bottom':'36px', 'margin-bottom':'36px'}">
+  <div fxFlex="25%">
+    <h2>What is this program based on?</h2>
+    <p>This program creates a training regimen that is perfectly suited for your current experience, availbility and goals so that you can train as effectively and efficiently as possible. </p>
+  </div>
+  <div fxFlex="25%" >
+    <h2>What are sets and reps?</h2>
+    <p>Reps are the number of times you executed an exercise. A set is a series of reps performed sequentially. For example, 2 sets of 15 reps means you perform the exercise 15 times in succession, take a short break, then do it again.</p>
+  </div>
+  <div fxFlex="25%" >
+    <h2>What is RPE?</h2>
+    <p>The RPE scale helps measure the intensity of your exercise. The scale goes from 0 - 10. The numbers correlate to how easy or dificult you find a movement. For example, RPE 6 would feel like you can complete 4 more reps until failure, RPE 8 would feel like you can complete 2 more reps until failure, RPE 10 would feel like you can't do any more reps.</p>
+  </div>
 </div>
 <div fxLayoutAlign="center start" fxLayout="row">
   <form>
@@ -11,7 +25,7 @@
       </mat-select>
     </mat-form-field>
   </form>
-    <button mat-icon-button (click)="openSnackBar()" [ngStyle]="{'margin-left': '12px', 'margin-top': '12px'}"><mat-icon [cdkCopyToClipboard]="address" >content_copy</mat-icon></button>
+    <button mat-raised-button [ngStyle]="{'margin-left': '12px', 'margin-top': '12px', 'background-color': '#bc0000', 'color':'white'}" (click)="openSnackBar()" >Copy Program</button>
 </div>
 
 <div fxLayoutAlign="center" fxLayout="row wrap" fxLayout.xs="column" id="contentToConvert">
@@ -21,7 +35,7 @@
   </ng-container>
   <ng-container matColumnDef="Movement">
     <th mat-header-cell *matHeaderCellDef>Movement</th>
-    <td mat-cell *matCellDef="let element">{{element.Movement}}</td>
+    <td mat-cell *matCellDef="let element"><a href={{getExerciseTutorial(element.Movement)}}>{{element.Movement}}</a></td>
   </ng-container>
 
   <ng-container matColumnDef="Sets">

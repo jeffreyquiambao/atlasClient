@@ -20,6 +20,7 @@ import { ReferencePageComponent } from './reference-page/reference-page.componen
 import {ClipboardModule} from '@angular/cdk/clipboard';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 @NgModule({
@@ -30,24 +31,25 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     ProgramPageComponent,
     ReferencePageComponent
   ],
-  imports: [
-    BrowserModule,
-    NoopAnimationsModule,
-    FlexLayoutModule,
-    MatCardModule,
-    MatButtonModule,
-    AppRoutingModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    FormsModule,
-    MatInputModule,
-    ReactiveFormsModule,
-    MatTableModule,
-    ClipboardModule,
-    MatIconModule,
-    MatSnackBarModule
+    imports: [
+        BrowserModule,
+        NoopAnimationsModule,
+        FlexLayoutModule,
+        MatCardModule,
+        MatButtonModule,
+        AppRoutingModule,
+        MatFormFieldModule,
+        MatSelectModule,
+        FormsModule,
+        MatInputModule,
+        ReactiveFormsModule,
+        MatTableModule,
+        ClipboardModule,
+        MatIconModule,
+        MatSnackBarModule,
+        MatCheckboxModule
 
-  ],
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

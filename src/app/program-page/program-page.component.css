@@ -8,3 +8,7 @@ td {
  padding: 0 15px;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
